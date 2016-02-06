@@ -15,7 +15,11 @@ public class Recursion{
     public double sqrtHelp(double n, double guess){	
 	guess = (n / guess+guess) / 2;
 
-	System.out.println(guess);
+	//  	System.out.println(guess);
+
+	if (guess * guess == n){
+	    return guess;
+	}
 
         return  sqrtHelp(n, guess);
 
