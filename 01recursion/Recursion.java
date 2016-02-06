@@ -9,7 +9,16 @@ public class Recursion{
 	    throw new IllegalArgumentException();
 	}
 
-	return 10;
+        return sqrtHelp(n, 1);
+    }
+
+    public double sqrtHelp(double n, double guess){	
+	guess = (n / guess+guess) / 2;
+
+	System.out.println(guess);
+
+        return  sqrtHelp(n, guess);
+
     }
 
 }
