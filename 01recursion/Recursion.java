@@ -1,7 +1,7 @@
 public class Recursion{
 
     public String name(){
-	return "Chang, Catherine";
+	return "Chang,Catherine";
     }
 
     public double sqrt(double n){
@@ -9,15 +9,17 @@ public class Recursion{
 	    throw new IllegalArgumentException();
 	}
 
+	if (n == 0) return n;
+
         return sqrtHelp(n, 1);
     }
 
     public double sqrtHelp(double n, double guess){	
 	guess = (n / guess+guess) / 2;
 
-	//  	System.out.println(guess);
+	//	System.out.println(guess);
 
-	if (guess * guess == n){
+	if (guess == (n / guess+guess) / 2){
 	    return guess;
 	}
 
