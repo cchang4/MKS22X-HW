@@ -24,6 +24,7 @@ public class QueenBoard{
      */
     private boolean solveH(int col){
 	return false;
+	//return solveH(0);
     }
 
     public void printSolution(){
