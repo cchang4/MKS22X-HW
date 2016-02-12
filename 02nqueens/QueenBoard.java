@@ -34,20 +34,25 @@ public class QueenBoard{
 	   and all 1's are replaced with 'Q'
 	 */
 
-	String ans = "";
 	for(int r = 0; r < board.length; r++){
 	    for(int c = 0; c < board[0].length; c++){
 		
-		if (board[r][c] = 
-		ans+= board[r][c]+" ";
+		if (board[r][c] == 0 || board[r][c] < 0)
+		    System.out.print("_ ");
+		
+
+		if (board[r][c] == 1)
+		    System.out.print("Q ");	
+		
 	    }
-	    ans+="\n";
+	    System.out.println();
 	}
 	
 
-	return ans;
+	System.out.println();
     }
-    }
+
+
 
     /********Do Not Edit Below This Line**********************************/
 
@@ -55,6 +60,7 @@ public class QueenBoard{
 	if(board[row][col] != 0){
 	    return false;
 	}
+	
 	board[row][col] = 1;
 	int offset = 1;
 	while(col+offset < board[row].length){
