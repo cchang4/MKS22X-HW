@@ -30,9 +30,16 @@ public class QueenBoard{
      */
     private boolean solveH(int col){
 
-	addQueen(0, col);
+	if(col == board.length) return true;
 
-	
+	for (int i = 0; i < board.length; i++){
+	    addQueen(i, col);
+	    if (board[i][col] < -1){
+		removeQueen(i, col);}
+	    solveH(col + 1);
+	}
+	    
+
 	return false;
 
     }
@@ -117,10 +124,12 @@ public class QueenBoard{
     
     public static void main(String[]args){
 	QueenBoard b = new QueenBoard(5);
-
+	
 	b.solve();
+	System.out.print(b);
 	b.printSolution();
-
+       
+	
 	/*
         System.out.println(b);
 	b.addQueen(3,0);
