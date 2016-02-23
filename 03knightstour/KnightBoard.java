@@ -1,3 +1,5 @@
+//IM REALLY SORRY 
+
 public class KnightBoard{
     private int board[][];
     
@@ -27,17 +29,17 @@ public class KnightBoard{
 	}
 	System.out.println();
     }
-
     /*
+    
     public static void main(String[]adajsd){
-	KnightBoard k = new KnightBoard(5);
+	KnightBoard k = new KnightBoard(3);
 	KnightBoard b = new KnightBoard(5,6);
 
 	k.printSolution();
 	b.printSolution();
     }
-    */
     
+    */
 
     
 
