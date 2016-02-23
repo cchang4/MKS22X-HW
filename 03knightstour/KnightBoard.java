@@ -25,15 +25,19 @@ public class KnightBoard{
 	    }
 	    System.out.println();
 	}
+	System.out.println();
     }
+
     /*
     public static void main(String[]adajsd){
 	KnightBoard k = new KnightBoard(5);
+	KnightBoard b = new KnightBoard(5,6);
 
 	k.printSolution();
+	b.printSolution();
     }
-
     */
+    
 
     
 
