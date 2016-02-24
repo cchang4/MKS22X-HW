@@ -1,9 +1,12 @@
-//SORRY AGAIN;;;;
 
 import java.util.*;
 import java.io.*;
 
 public class Bronze{
+
+    public Bronze(int R, int C){
+	//idk why i even chose this course
+    }
 
     public static void main(String[] arjsfd){
 
