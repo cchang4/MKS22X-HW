@@ -1,5 +1,6 @@
 //IM REALLY SORRY 
 
+
 public class KnightBoard{
     private int board[][];
     
@@ -20,6 +21,7 @@ public class KnightBoard{
     }
 
     public void solve(int col, int row, int turn){
+	return 0;
     }
 
 
