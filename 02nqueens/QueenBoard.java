@@ -3,11 +3,6 @@ public class QueenBoard{
     
     public QueenBoard(int size){
 	board = new int[size][size];
-	for (int row = 0; row < size; row++){
-	    for (int col = 0; col < size; col++) {
-		board[row][col] = 0;
-	    }
-	}
     }
 
     /**
@@ -32,13 +27,15 @@ public class QueenBoard{
 
 	if(col == board.length) return true;
 
-	for (int i = 0; i < board.length; i++){
-	    addQueen(i, col);
-	    if (board[i][col] < -1){
-		removeQueen(i, col);}
-	    solveH(col + 1);
-	}
-	    
+	  for (int i = 0; i < board[col].length; i++){
+	      if(addQueen(i, col)){
+		  if(solveH(col+1)){
+		      return true;
+		  }else{
+		      removeQueen(i, col);
+		  }
+	      }
+	  }	   	    
 
 	return false;
 
@@ -120,26 +117,5 @@ public class QueenBoard{
 	    ans+="\n";
 	}
 	return ans;
-    }
-    
-    public static void main(String[]args){
-	QueenBoard b = new QueenBoard(5);
-	
-	b.solve();
-	System.out.print(b);
-	b.printSolution();
-       
-	
-	/*
-        System.out.println(b);
-	b.addQueen(3,0);
-	b.addQueen(0,1);
-        System.out.println(b);
-	b.printSolution();
-	b.removeQueen(3,0);
-        System.out.println(b);
-	*/
-    }
-    
-    
+    }    
 }
