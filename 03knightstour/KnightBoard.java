@@ -12,8 +12,16 @@ public class KnightBoard{
     }
 
     public boolean solve(){
+	for(int i = 0; i < board.length; i++){
+	    for (int j = 0; j < board[0].length; j++){
+		solve(j, i, 0);
+	    }
 	return true;
     }
+
+    public void solve(int col, int row, int turn){
+    }
+
 
     public void printSolution(){
 
