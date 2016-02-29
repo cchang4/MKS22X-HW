@@ -15,13 +15,52 @@ public class KnightBoard{
     public boolean solve(){
 	for(int i = 0; i < board.length; i++){
 	    for (int j = 0; j < board[0].length; j++){
-		solve(j, i, 0);
+		solveH(j, i, 0);
 	    }
 	return true;
     }
 
-    public void solve(int col, int row, int turn){
-	return 0;
+    public void solveH(int col, int row, int turn){
+
+	
+    }
+
+     private boolean addKnight(int row, int col){
+	if(board[row][col] != 0){
+	    return false;
+	}
+	board[row][col] = 1;
+	int offset = 1;
+	while(col+offset < board[row].length){
+	    board[row][col+offset]--;
+	    if(row - offset >= 0){
+		board[row-offset][col+offset]--;
+	    }
+	    if(row + offset < board.length){
+		board[row+offset][col+offset]--;
+	    }
+	    offset++;
+	}
+	return true;
+    }
+
+    private boolean removeKnight(int row, int col){
+	if(board[row][col] != 1){
+	    return false;
+	}
+	board[row][col] = 0;
+	int offset = 1;
+	while(col+offset < board[row].length){
+	    board[row][col+offset]++;
+	    if(row - offset >= 0){
+		board[row-offset][col+offset]++;
+	    }
+	    if(row + offset < board.length){
+		board[row+offset][col+offset]++;
+	    }
+	    offset++;
+	}
+	return true;
     }
 
 
