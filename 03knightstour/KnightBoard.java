@@ -29,8 +29,14 @@ public class KnightBoard{
 	//after moving, 0 turns to "turn" number
 	//if number already there, backtrack, try diff direction
 
-	if (board[col][row] == 0) {board[col][row] = turn;}
-	return true;
+	board[col][row] = turn;
+	if(turn == (col * row) -1) {
+	    return false;
+	}else{
+	    if (board[col][row]== 0){
+		
+	
+	
 
 
     }
