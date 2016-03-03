@@ -22,46 +22,14 @@ public class KnightBoard{
 
     public void solveH(int col, int row, int turn){
 
-	
+	//start at 0,0
+	//move in L shape (+-1 X, +-2 Y, +-2 X +-1 Y diff combos)
+	//after moving, 0 turns to "turn" number
+	//if number already there, backtrack, try diff direction
+
+
     }
 
-     private boolean addKnight(int row, int col){
-	if(board[row][col] != 0){
-	    return false;
-	}
-	board[row][col] = 1;
-	int offset = 1;
-	while(col+offset < board[row].length){
-	    board[row][col+offset]--;
-	    if(row - offset >= 0){
-		board[row-offset][col+offset]--;
-	    }
-	    if(row + offset < board.length){
-		board[row+offset][col+offset]--;
-	    }
-	    offset++;
-	}
-	return true;
-    }
-
-    private boolean removeKnight(int row, int col){
-	if(board[row][col] != 1){
-	    return false;
-	}
-	board[row][col] = 0;
-	int offset = 1;
-	while(col+offset < board[row].length){
-	    board[row][col+offset]++;
-	    if(row - offset >= 0){
-		board[row-offset][col+offset]++;
-	    }
-	    if(row + offset < board.length){
-		board[row+offset][col+offset]++;
-	    }
-	    offset++;
-	}
-	return true;
-    }
 
 
     public void printSolution(){
