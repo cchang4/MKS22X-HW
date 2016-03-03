@@ -1,4 +1,5 @@
 //IM REALLY SORRY 
+//totes do not undertand lol im stupid
 
 
 public class KnightBoard{
@@ -17,18 +18,23 @@ public class KnightBoard{
 	    for (int j = 0; j < board[0].length; j++){
 		solveH(j, i, 0);
 	    }
+    }
 	return true;
     }
 
-    public void solveH(int col, int row, int turn){
+    private boolean solveH(int col, int row, int turn){
 
 	//start at 0,0
 	//move in L shape (+-1 X, +-2 Y, +-2 X +-1 Y diff combos)
 	//after moving, 0 turns to "turn" number
 	//if number already there, backtrack, try diff direction
 
+	if (board[col][row] == 0) {board[col][row] = turn;}
+	return true;
+
 
     }
+    
 
 
 
@@ -46,7 +52,7 @@ public class KnightBoard{
 	}
 	System.out.println();
     }
-    /*
+    
     
     public static void main(String[]adajsd){
 	KnightBoard k = new KnightBoard(3);
@@ -56,7 +62,7 @@ public class KnightBoard{
 	b.printSolution();
     }
     
-    */
+    
 
     
 
