@@ -1,6 +1,6 @@
 //IM REALLY SORRY 
-//totes do not undertand lol im stupid
-
+//totes do not understand lol im stupid
+import java.io.*;
 
 public class KnightBoard{
     private int board[][];
@@ -24,21 +24,30 @@ public class KnightBoard{
 
     private boolean solveH(int col, int row, int turn){
 
-	//start at 0,0
-	//move in L shape (+-1 X, +-2 Y, +-2 X +-1 Y diff combos)
-	//after moving, 0 turns to "turn" number
-	//if number already there, backtrack, try diff direction
+
 
 	board[col][row] = turn;
+	
 	if(turn == (col * row) -1) {
 	    return false;
 	}else{
 	    if (board[col][row]== 0){
-		
+		if (board[col + 2][row - 1] == 0 ||
+		    board[col + 1][row - 2] == 0 ||
+		    board[col - 1][row - 2] == 0 ||
+		    board[col - 2][row - 1] == 0 ||
+		    board[col - 2][row + 1] == 0 ||
+		    board[col - 1][row + 2] == 0 ||
+		    board[col + 1][row + 2] == 0 ||
+		    board[col + 2][row + 1] == 0){
+		    solveH(col, row, turn + 1);
+		}
+		return true;
+	    }
+	}
 	
 	
-
-
+	return false;
     }
     
 
@@ -64,6 +73,7 @@ public class KnightBoard{
 	KnightBoard k = new KnightBoard(3);
 	KnightBoard b = new KnightBoard(5,6);
 
+	k.solve();
 	k.printSolution();
 	b.printSolution();
     }
