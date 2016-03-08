@@ -5,9 +5,10 @@ import java.io.*;
 
 public class Bronze{
 
-    public Bronze(int R, int C){
-	//idk why i even chose this course
-    }
+    int[][] field;
+    int R, C, E, N; //row, col, elevation, number of instructions
+    int[][] instr;
+
 
     public static void main(String[] arjsfd){
 
