@@ -54,4 +54,12 @@ public class Sorts{
         }
     }
 
+    public static void mergesort(int[]data){
+	return 0;
+    }
+
+    public static String name(){
+	return "6,Chang,Catherine";  
+}
+
 }
