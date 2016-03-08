@@ -58,6 +58,14 @@ public class Sorts{
 	return 0;
     }
 
+    public void mergesort(int[]data, int left, int right){
+	return 0;
+    }
+
+    public void merge(){
+	return 0;
+    }
+
     public static String name(){
 	return "6,Chang,Catherine";  
 }
