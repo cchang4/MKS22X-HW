@@ -18,6 +18,10 @@ public class Quick{
 	return 0;
     }
 
+    public void quick(int left, int right, int k){
+	return 0;
+    }
+
 	
     
 }
