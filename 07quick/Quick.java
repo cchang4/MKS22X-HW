@@ -1,3 +1,5 @@
+//unfinished i hate compsci and myself for choosing this course
+
 public class Quick{
 
     private static int partition(int[]data, int left, int right) {
@@ -19,7 +21,7 @@ public class Quick{
     }
 
     public void quick(int left, int right, int k){
-	return 0;
+
     }
 
 	
