@@ -55,39 +55,43 @@ public class Sorts{
     }
 
     public static void mergesort(int[]data){
-
-	if(data.length == 1){ printArray(data);}
-
-        mergesort(data, 0, data.length -1);
+	//calls helper functions
+	split(data, 0, data.length / 2,  data.length / 2, data.length);
 	
     }
 
-    private static void mergesort(int[]data, int left, int right){
+    private static void merge(int[] dataold, int[] datanew){
+	//sorts and combines 2 arrays into one combined one
 
-	if (right > left){
-	    mergesort(data, left + 1, right);
-	    mergesort(data, left, right - 1);
-	    merge(data, startA, endA, startB, endB);
-	}
-        
     }
 
-    private static void merge(int[]data, int startA, int endA, int startB, int endB){
-	startA = 0;
-	if ((data.length - 1) % 2 = 0){
-	    endA = (data.length -1 / 2);
-	}else{
-	    endA = (data.length -1 / 2 - 1);
+    private static void split(int[]data, int startA, int endA, int startB, int endB){
+	//splits original array into 2, stores them into new ones
+
+
+	int[] left = new int [endA - startA];
+	int[] right = new int [endB - startB];
+
+	for (int i = 0; i < endA; i++){
+	    left[i] = data[i];
 	}
-	startB = data.length - 1;
-	endB = (data.length -1 / 2 + 1);
+	
+	for (int i = 0; i < right.length; i++){
+	    for (int j = startB; j < endB; j++){
+		right[i++] = data[j];
+	    }
+	}
+	
+	//	printArray(left);
+	//	printArray(right);
          
     }
+    /*
 
-    /*   public static void main(String[] args) 
+      public static void main(String[] args) 
     {
         //Unsorted array
-        int[] a = { 2};
+        int[] a = { 2, 4, 1, 3, 5};
          
         //Call merge sort
         mergesort(a);
@@ -95,6 +99,8 @@ public class Sorts{
     }
 
     */
+
+    
 
     public static String name(){
 	return "6,Chang,Catherine";  
