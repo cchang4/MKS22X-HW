@@ -60,13 +60,36 @@ public class Sorts{
 	
     }
 
-    private static void merge(int[] dataold, int[] datanew){
-	//sorts and combines 2 arrays into one combined one
+    private static void sort(int[] left, int[] right){
+	//sort the two arrays
+
+	//left array
+	for (int i = 0; i < left.length-1; i++){
+	    if (left[i] > left[i + 1]){
+		int store = left[i];
+		left[i] = left[i+1];
+		left[i+1] = store;
+	    }
+	}
+
+	//	printArray(left);
+	/*
+
+	for (int i = 0; i < right.length-1; i++){
+	    if (right[i] > right[i + 1]){
+		int store2 = right[i];
+		right[i] = right[i+1];
+		right[i+1] = store2;
+	    }
+	}
+
+	printArray(right);
+	*/
 
     }
 
     private static void split(int[]data, int startA, int endA, int startB, int endB){
-	//splits original array into 2, stores them into new ones
+	//splits original array into 2, stores them into new ones, sorts
 
 
 	int[] left = new int [endA - startA];
@@ -81,17 +104,18 @@ public class Sorts{
 		right[i++] = data[j];
 	    }
 	}
-	
-	//	printArray(left);
-	//	printArray(right);
-         
+	/*
+		printArray(left);
+		printArray(right);
+	*/
+		sort(left,right);
     }
+    
     /*
-
       public static void main(String[] args) 
     {
         //Unsorted array
-        int[] a = { 2, 4, 1, 3, 5};
+        int[] a = {2, 4, 5, 3, 1};
          
         //Call merge sort
         mergesort(a);
@@ -103,7 +127,7 @@ public class Sorts{
     
 
     public static String name(){
-	return "6,Chang,Catherine";  
+	return "6,Chang,Catherine, SORRY IM NOT DONE YET";  
 }
 
 }

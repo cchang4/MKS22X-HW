@@ -24,6 +24,19 @@ public class Quick{
 
     }
 
+    public static String name(){
+	return "6,Chang,Catherine, SORRY IM NOT DONE YET STILL WORKING ON OLDER ONES ILLTRY TO WORK ON THIS ONE SOON EVEN IF I CANT FIGURE OUT THE OTHERS COMPLETELY";
+    }
+    public static void quickSort(int[]data){
+    }
+    private static void quickSort(int[]data,int left,int right){
+    }
+    /*
+    public static void main(String[]adfd){
+        System.out.println( name());
+    }
+    */
+
 	
     
 }
