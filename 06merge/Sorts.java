@@ -54,80 +54,58 @@ public class Sorts{
         }
     }
 
+
+   
+
     public static void mergesort(int[]data){
-	//calls helper functions
-	split(data, 0, data.length / 2,  data.length / 2, data.length);
-	
-    }
 
-    private static void sort(int[] left, int[] right){
-	//sort the two arrays
+	    int[] left = new int[(data.length/2)];
+	    int[] right = new int[(data.length/2)];
 
-	//left array
-	for (int i = 0; i < left.length-1; i++){
-	    if (left[i] > left[i + 1]){
-		int store = left[i];
-		left[i] = left[i+1];
-		left[i+1] = store;
+	    for (int i = 0; i < left.length; i++){
+		left[i] = data[i];
 	    }
-	}
 
-	//	printArray(left);
-	/*
-
-	for (int i = 0; i < right.length-1; i++){
-	    if (right[i] > right[i + 1]){
-		int store2 = right[i];
-		right[i] = right[i+1];
-		right[i+1] = store2;
-	    }
-	}
-
-	printArray(right);
-	*/
-
-    }
-
-    private static void split(int[]data, int startA, int endA, int startB, int endB){
-	//splits original array into 2, stores them into new ones, sorts
-
-
-	int[] left = new int [endA - startA];
-	int[] right = new int [endB - startB];
-
-	for (int i = 0; i < endA; i++){
-	    left[i] = data[i];
-	}
-	
-	for (int i = 0; i < right.length; i++){
-	    for (int j = startB; j < endB; j++){
-		right[i++] = data[j];
-	    }
-	}
-	/*
-		printArray(left);
-		printArray(right);
-	*/
-		sort(left,right);
-    }
-    
     /*
+      Preconditions:
+      data.length >= 2
+      the elements of data are in ascending order (sorted)
+      startA <= endA
+      startB <= endB
+      endA + 1 == startB
+      startA >= 0
+      endB < data.length
+    */
+
+    public static void merge(int[]data, int startA, int endA, int startB, int endB){
+
+	
+
+	
+    }
+
+  
+
+    
+    
       public static void main(String[] args) 
     {
         //Unsorted array
         int[] a = {2, 4, 5, 3, 1};
+	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
         mergesort(a);
+	mergesort(b);
 
     }
 
-    */
+    
 
     
 
     public static String name(){
-	return "6,Chang,Catherine, SORRY IM NOT DONE YET";  
+	return "6,Chang,Catherine, kmn";  
 }
 
 }
