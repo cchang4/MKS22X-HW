@@ -60,11 +60,34 @@ public class Sorts{
     public static void mergesort(int[]data){
 
 	    int[] left = new int[(data.length/2)];
-	    int[] right = new int[(data.length/2)];
+	    int[] right = new int[data.length - left.length];
 
-	    for (int i = 0; i < left.length; i++){
+		
+
+	    for(int i = 0; i < left.length; i ++){
 		left[i] = data[i];
 	    }
+
+	    //    printArray(left);
+
+	    for(int i = 0; i < right.length; i++){
+		for (int j = left.length; j < data.length; j++){
+		    right[i] = data[j];
+		    i++;
+		}
+	    }
+
+	    //	    printArray(right);
+
+	    //	    mergesort(left);
+	    //    mergesort(right);
+	   
+	   
+
+    
+
+
+    }
 
     /*
       Preconditions:
@@ -86,7 +109,7 @@ public class Sorts{
 
   
 
-    
+    /*
     
       public static void main(String[] args) 
     {
@@ -95,17 +118,19 @@ public class Sorts{
 	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
+	System.out.println("odd");
         mergesort(a);
+	System.out.println("even");
 	mergesort(b);
 
     }
 
-    
+    */
 
     
 
     public static String name(){
-	return "6,Chang,Catherine, kmn";  
+	return "6,Chang,Catherine, why";  
 }
 
 }
