@@ -58,36 +58,36 @@ public class Sorts{
    
 
     public static void mergesort(int[]data){
+	
+	if(data.length> 1){
 
-	    int[] left = new int[(data.length/2)];
-	    int[] right = new int[data.length - left.length];
+	int[] left = new int[(data.length/2)];
+	int[] right = new int[data.length - left.length];
+	    		
+	for(int i = 0; i < left.length; i ++){
+	    left[i] = data[i];
+	}
 
-		
+	//	   printArray(left);
 
-	    for(int i = 0; i < left.length; i ++){
-		left[i] = data[i];
+	for(int i = 0; i < right.length; i++){
+	    for (int j = left.length; j < data.length; j++){
+		right[i] = data[j];
+		i++;
 	    }
-
-	    //    printArray(left);
-
-	    for(int i = 0; i < right.length; i++){
-		for (int j = left.length; j < data.length; j++){
-		    right[i] = data[j];
-		    i++;
-		}
-	    }
-
-	    //	    printArray(right);
-
-	    //	    mergesort(left);
-	    //    mergesort(right);
-	   
-	   
-
+	}
     
+	//    	    printArray(right);
 
+	mergesort(left);
+	mergesort(right);
+      	merge(data, 0, left.length, left.length + 1, data.length - 1);
+	
+	}
 
     }
+
+
 
     /*
       Preconditions:
@@ -102,12 +102,12 @@ public class Sorts{
 
     public static void merge(int[]data, int startA, int endA, int startB, int endB){
 
-	
+
+	//	System.out.print("merge");
+		printArray(data);
 
 	
     }
-
-  
 
     /*
     
@@ -124,13 +124,9 @@ public class Sorts{
 	mergesort(b);
 
     }
-
     */
 
-    
-
     public static String name(){
-	return "6,Chang,Catherine, why";  
-}
+	return "6,Chang,Catherine, why";  }
 
 }
