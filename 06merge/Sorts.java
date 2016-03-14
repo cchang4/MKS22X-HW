@@ -59,16 +59,26 @@ public class Sorts{
 
     public static void mergesort(int[]data){
 	
-	if(data.length> 1){
+
 
 	int[] left = new int[(data.length/2)];
 	int[] right = new int[data.length - left.length];
+
+
+	int startA = 0;
+	int endA = left.length;
+	int startB = endA+1;
+	int endB = data.length - 1;
+
+
+	//	System.out.println("mergesort:" + startA + ", " + endA + ", " +startB + ", " + endB);
 	    		
 	for(int i = 0; i < left.length; i ++){
 	    left[i] = data[i];
-	}
 
-	//	   printArray(left);
+	}
+	//	System.out.print("left: ");
+	//	printArray(left);
 
 	for(int i = 0; i < right.length; i++){
 	    for (int j = left.length; j < data.length; j++){
@@ -76,14 +86,17 @@ public class Sorts{
 		i++;
 	    }
 	}
-    
-	//    	    printArray(right);
 
-	mergesort(left);
-	mergesort(right);
-      	merge(data, 0, left.length, left.length + 1, data.length - 1);
+	//	System.out.print("right: ");
+	//	printArray(right);
+	
+	if(data.length> 1){
+	    mergesort(left);
+	    mergesort(right);
+	    merge(data, startA, endA, startB, endB);
 	
 	}
+
 
     }
 
@@ -101,15 +114,21 @@ public class Sorts{
     */
 
     public static void merge(int[]data, int startA, int endA, int startB, int endB){
-
-
-	//	System.out.print("merge");
-		printArray(data);
-
 	
+	int[]temp = new int[data.length];
+
+	/*
+		System.out.print("merge");
+		printArray(data);
+		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
+		System.out.print("final");
+		printArray(temp);
+
+	*/
     }
 
     /*
+   
     
       public static void main(String[] args) 
     {
@@ -124,6 +143,7 @@ public class Sorts{
 	mergesort(b);
 
     }
+    
     */
 
     public static String name(){
