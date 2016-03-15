@@ -66,19 +66,20 @@ public class Sorts{
 
 
 	int startA = 0;
-	int endA = left.length;
+	int endA = data.length/2;
 	int startB = endA+1;
 	int endB = data.length - 1;
 
 
-	//	System.out.println("mergesort:" + startA + ", " + endA + ", " +startB + ", " + endB);
+	//   	System.out.println("mergesort:" + startA + ", " + endA + ", " +startB + ", " + endB);
+
 	    		
 	for(int i = 0; i < left.length; i ++){
 	    left[i] = data[i];
 
 	}
-	//	System.out.print("left: ");
-	//	printArray(left);
+	//		System.out.print("left: ");
+		//		printArray(left);
 
 	for(int i = 0; i < right.length; i++){
 	    for (int j = left.length; j < data.length; j++){
@@ -87,20 +88,29 @@ public class Sorts{
 	    }
 	}
 
-	//	System.out.print("right: ");
-	//	printArray(right);
+	//		System.out.print("right: ");
+	//		printArray(right);
 	
 	if(data.length> 1){
 	    mergesort(left);
 	    mergesort(right);
-	    merge(data, startA, endA, startB, endB);
+	    //	    sort(left,right);
+	      merge(data, startA, endA, startB, endB);
 	
 	}
 
 
     }
+    /*
+    public static void sort(int[]left, int[]right){
 
+	int[]temp = new int[left.length+right.length];
 
+	System.out.println("sort??");
+    
+    }
+
+    */
 
     /*
       Preconditions:
@@ -117,23 +127,23 @@ public class Sorts{
 	
 	int[]temp = new int[data.length];
 
-	/*
-		System.out.print("merge");
-		printArray(data);
-		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
-		System.out.print("final");
-		printArray(temp);
+	
+	//		System.out.print("merge");
+	//		printArray(data);
+		//		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
+		//		System.out.print("final");
+		//		printArray(temp);
 
-	*/
+	
     }
 
+    
     /*
-   
     
       public static void main(String[] args) 
     {
         //Unsorted array
-        int[] a = {2, 4, 5, 3, 1};
+        int[] a = {4, 2, 5, 3, 1};
 	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
