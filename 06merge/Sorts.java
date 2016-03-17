@@ -60,31 +60,28 @@ public class Sorts{
     public static void mergesort(int[]data){
 	
 
-
-	int[] left = new int[(data.length/2)];
+	int[] left = new int[data.length/2];
 	int[] right = new int[data.length - left.length];
+	int i = 0;
+	int m = left.length;
 
 	    		
-	for(int i = 0; i < left.length; i ++){
-	    left[i] = data[i];
-
+	while(i < left.length){
+	    left[i++] = data[i++];
 	}
-	/*
+       
 			System.out.print("left: ");
 				printArray(left);
-	*/
+     
 
-	for(int i = 0; i < right.length; i++){
-	    for (int j = left.length; j < data.length; j++){
-		right[i] = data[j];
-		i++;
-	    }
+	while(i < right.length){
+	    right[i++] = data[m++];
 	}
-	/*
+       
 
 			System.out.print("right: ");
 			printArray(right);
-	*/
+	
 	
 	if(data.length> 1){
 	    mergesort(left);
@@ -111,49 +108,37 @@ public class Sorts{
     */
 
     public static void merge(int[]data, int startA, int endA, int startB, int endB){
-
 	
 	int[]temp = new int[data.length];
 	int i = 0;
 
 
-
 	while(startA < endA && startB < endB){
-        	if(data[startA] > data[startB]){
-		    temp[i] = data[startB];
-		    startB++;
-		    i++;
+        	if(data[startA] >= data[startB]){
+		    temp[i++] = data[startB++];     		    
 		}else{
-		    temp[i] = data[startA];
-		    startA++;
-		    i++;
-		}
+		    temp[i++] = data[startA++];       
+		}		
 
-		//	printArray(temp); 
 	}
 
+
 	while(startA < endA){
-	    temp[i] = data[startA];
-	    startA++;
-	    i++;
+	    temp[i++] = data[startA++];
 	}
 
 	while(startB < endB){
-	    temp[i] = data[startB];
-	    startB++;
-	    i++;
+	    temp[i++] = data[startB++];
 	}
-	    
+	
 	   
        
-	/*
-
+	
 	
 			System.out.print("merge");
 			printArray(data);
 	       		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
-				System.out.print("final");
-	*/
+       
 
 	printArray(temp);
 
@@ -161,23 +146,23 @@ public class Sorts{
     }
 
     
-    
     /*
+    
       public static void main(String[] args) 
     {
         //Unsorted array
-        int[] a = {4, 2, 5, 3, 1};
+        int[] a = {4, 2, 5, 3, 1, 2};
 	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
-	//System.out.println("odd");
-	// mergesort(a);
-		System.out.println("even");
-		mergesort(b);
+	System.out.println("odd");
+	mergesort(a);
+	System.out.println("even");
+	mergesort(b);
 
     }
-    */    
-    
+        
+    */
     
     public static String name(){
 	return "6,Chang,Catherine, why";  }
