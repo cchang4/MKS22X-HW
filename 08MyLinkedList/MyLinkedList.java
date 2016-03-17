@@ -97,7 +97,25 @@ public class MyLinkedList{
 
 
     public boolean add(int index, int value){
-	//- insert a new elmeent at the specified index, 0 at the front, size() at the end.
+	//- insert a new element at the specified index, 0 at the front, size() at the end.
+
+
+	LNode p = start;
+	LNode n = new LNode(value);
+	int i = 0;
+
+	while(p.getNext() != null){
+	    i++;
+	    p = p.getNext();
+	    if(i == index -1){
+		n.setNext(p.getNext());
+		p.setNext(n);
+		
+	    }
+
+
+	}
+	size += 1;
 	return true;
     }
    
@@ -158,9 +176,9 @@ public class MyLinkedList{
     }
 
 	
+    /*
     
-    
-    public static void main(String[]fuckthis){
+    public static void main(String[]laksjdla){
 	MyLinkedList a = new MyLinkedList();
 
 	int i = 0;
@@ -176,7 +194,11 @@ public class MyLinkedList{
 	System.out.println(a);
 	a.remove(1);
 	System.out.println(a);
-	System.out.println(a.indexOf(100));
+	System.out.println(a.size);
+        a.add(3, 0);
+	System.out.println(a);
+	System.out.println(a.size);
     }
+    */
     
 }
