@@ -54,69 +54,73 @@ public class Sorts{
         }
     }
 
+    /*HELP FROM you&dad&internet especially http://www.codenlearn.com/2011/10/simple-merge-sort.html
+     */
+
     public static void mergesort(int[]data){
-	merge(data, 0, data.length/2-1, data.length/2, data.length-1);
+
+	mergesortHelper(data, 0, data.length - 1);
+	printArray(data);
+
+    }
+
+
+    private static void mergesortHelper(int[] data, int start, int end){
+
+
+	if(start < end){
+
+	    int mid = (start+end) / 2;
+
+	    mergesortHelper(data, start, mid);
+	    mergesortHelper(data, mid+1, end);
+
+	    merge(data, start, mid, mid+1, end);
+	}
+	 
     }
   
 
-    public static void merge(int[]data, int startA, int endA, int startB, int endB){
-	int[] temp = new int[data.length];
-	int i = 0;
+   private static void merge(int[]data, int startA, int endA, int startB, int endB){
 
-	System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
+       int size = endB - startA + 1;
+       int[] temp = new int[data.length];
+       int i = 0;
 
 
-	while(startA < endA && startB < endB){
+	while(startA <= endA && startB <= endB){
 	    if(data[startA] <= data[startB]){
-		temp[i] = data[startA];
-		startA++;;
-		i++;
+		temp[i++] = data[startA++];
+   
 	    } else {
-		temp[i] = data[startB];
-		startB++;
-		i++;
-	    }
-	   
-
-	    printArray(temp);
-	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
-	}
-       
-
-	while (startA <= endA){
-	    temp[i] = data[startA];
-	    startA++;
-	    i++;
-	    System.out.print("remaining left: ");
-	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
-	    printArray(temp);
-	}
-	
-
-
-	while (startB <= endB){
-	    temp[i] = data[startB];
-	    startB++;
-	    i++;
-	    System.out.print("remaining right: ");
-	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
-	    printArray(temp);
+		temp[i++] = data[startB++];
+	    }	      
 	    
 	}
-       
-	
 
-	System.out.print("final: ");
-	printArray(temp);
-	System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
-    
+
+	while(startA <= endA){
+	    temp[i++] = data[startA++];
+	}
+
+	while(startB <= endB){
+	    temp[i++] = data[startB++];
+	}
+
+	for(int j = size - 1; j >=0; j--,endB--){
+	    data[endB] = temp[j];
+	}
+
+
     }
+
+    /*
     
       public static void main(String[] args) 
     {
-	/*
+	
         //Unsorted array
-        int[] a = {4, 2, 5, 3, 1, 2};
+        int[] a = {4, 2, 5, 3, 1, 2, 4};
 	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
@@ -124,18 +128,14 @@ public class Sorts{
 	mergesort(a);
 	System.out.println("even");
 	mergesort(b);
-	*/
-
-	int[] a = {1, 4, 5, 10, 2, 3, 4, 5 };
-
-	mergesort(a);
 
 	
     }
+    */
         
     
     
     public static String name(){
-	return "6,Chang,Catherine, why";  }
+	return "6,Chang,Catherine, im super extra late rip";  }
 
 }
