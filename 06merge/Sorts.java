@@ -54,102 +54,67 @@ public class Sorts{
         }
     }
 
-
-   
-
     public static void mergesort(int[]data){
-	
-
-	int[] left = new int[data.length/2];
-	int[] right = new int[data.length - left.length];
-	int i = 0;
-	int m = left.length;
-
-	    		
-	while(i < left.length){
-	    left[i++] = data[i++];
-	}
-       
-			System.out.print("left: ");
-				printArray(left);
-     
-
-	while(i < right.length){
-	    right[i++] = data[m++];
-	}
-       
-
-			System.out.print("right: ");
-			printArray(right);
-	
-	
-	if(data.length> 1){
-	    mergesort(left);
-	    mergesort(right);
-	    merge(data, 0, right.length, right.length-1, data.length-1);
-	
-	}
-
-
-
+	merge(data, 0, data.length/2-1, data.length/2, data.length-1);
     }
- 
-   
-
-    /*
-      Preconditions:
-      data.length >= 2
-      the elements of data are in ascending order (sorted)
-      startA <= endA
-      startB <= endB
-      endA + 1 == startB
-      startA >= 0
-      endB < data.length
-    */
+  
 
     public static void merge(int[]data, int startA, int endA, int startB, int endB){
-	
-	int[]temp = new int[data.length];
+	int[] temp = new int[data.length];
 	int i = 0;
+
+	System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
 
 
 	while(startA < endA && startB < endB){
-        	if(data[startA] >= data[startB]){
-		    temp[i++] = data[startB++];     		    
-		}else{
-		    temp[i++] = data[startA++];       
-		}		
-
-	}
-
-
-	while(startA < endA){
-	    temp[i++] = data[startA++];
-	}
-
-	while(startB < endB){
-	    temp[i++] = data[startB++];
-	}
-	
+	    if(data[startA] <= data[startB]){
+		temp[i] = data[startA];
+		startA++;;
+		i++;
+	    } else {
+		temp[i] = data[startB];
+		startB++;
+		i++;
+	    }
 	   
-       
-	
-	
-			System.out.print("merge");
-			printArray(data);
-	       		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
+
+	    printArray(temp);
+	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
+	}
        
 
+	while (startA <= endA){
+	    temp[i] = data[startA];
+	    startA++;
+	    i++;
+	    System.out.print("remaining left: ");
+	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
+	    printArray(temp);
+	}
+	
+
+
+	while (startB <= endB){
+	    temp[i] = data[startB];
+	    startB++;
+	    i++;
+	    System.out.print("remaining right: ");
+	    System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
+	    printArray(temp);
+	    
+	}
+       
+	
+
+	System.out.print("final: ");
 	printArray(temp);
-
-	
-    }
-
+	System.out.println(startA + ", "+ endA + ", " + startB + ", "+ endB);
     
-    /*
+    }
     
       public static void main(String[] args) 
     {
+	/*
         //Unsorted array
         int[] a = {4, 2, 5, 3, 1, 2};
 	int[] b = {2, 3, 5, 3};
@@ -159,10 +124,16 @@ public class Sorts{
 	mergesort(a);
 	System.out.println("even");
 	mergesort(b);
+	*/
 
+	int[] a = {1, 4, 5, 10, 2, 3, 4, 5 };
+
+	mergesort(a);
+
+	
     }
         
-    */
+    
     
     public static String name(){
 	return "6,Chang,Catherine, why";  }
