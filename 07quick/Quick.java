@@ -1,5 +1,3 @@
-//unfinished i hate compsci and myself for choosing this course
-
 public class Quick{
 
     private static int partition(int[]data, int left, int right) {
@@ -9,7 +7,9 @@ public class Quick{
 //return the index of the partition element. 
 // this allows your quickselect method to decide where to go next.
 
-	return 0;
+	int p = data[(int)Math.random()(right - left)];
+
+	return p;
     }
 
     public static int quickselect(int[]data, int k){
@@ -34,8 +34,13 @@ public class Quick{
     /*
     public static void main(String[]adfd){
         System.out.println( name());
+
+        int[] a = {2, 4, 5, 3, 1};
+         
     }
     */
+
+    
 
 	
     
