@@ -4,24 +4,26 @@ public class MyLinkedList<T>{
     //help from http://www.mycstutorials.com/articles/data_structures/linkedlists
 
 
-    private class LNode<T>{
+    private class LNode{
+	T data;
         LNode next;
 	int value;
 
-	public LNode(int cv){
-	    value = cv;
+	public LNode(T thing){
+	    data = thing;
 	}
 
-	public int getValue(){
-	    return value;
+
+	public T getValue(){
+	    return data;
 	}
 
 	public LNode getNext(){
 	    return next;
 	}
 
-	public void setValue(int cv){
-	    value = cv;
+	public void setValue(T thing){
+	    data = thing;
 	}
 
 	public void setNext(LNode n){
@@ -36,7 +38,7 @@ public class MyLinkedList<T>{
     //  methods:
    
 
-    public int get(int index){
+    public T get(int index){
 	//- get the value of the element at the specified index (0 based)
 	int i = 0;
 	LNode p = start;
@@ -50,9 +52,9 @@ public class MyLinkedList<T>{
 
  
 
-    public int set(int index,int newValue) {
+    public T set(int index,T newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
-	int old = get(index);
+        T old = get(index);
 
 	int i = 0;
 	LNode p = start;
@@ -75,11 +77,11 @@ public class MyLinkedList<T>{
 	return size;
     }
     
-    public int remove(int index){
+    public T remove(int index){
 	//- remove the element at the specified index, returns the value removed
 	size -= 1;
 
-	int old = get(index);
+        T old = get(index);
 
 	int i = 0;
 	LNode p = start;
@@ -96,12 +98,12 @@ public class MyLinkedList<T>{
     }
 
 
-    public boolean add(int index, int value){
+    public boolean add(int index, T value){
 	//- insert a new element at the specified index, 0 at the front, size() at the end.
 
 
 	LNode p = start;
-	LNode n = new LNode<T>(value);
+	LNode n = new LNode(value);
 	int i = 0;
 
 	while(p.getNext() != null){
@@ -120,17 +122,17 @@ public class MyLinkedList<T>{
     }
    
 
-    public boolean add(int value){
+    public boolean add(T value){
 	// - adds to end
 
 	if(start == null){
-	    start = new LNode<T>(value);
+	    start = new LNode(value);
 	}else{
 	    LNode p = start;			
 	    while(p.getNext()!=null){
 		p = p.getNext();
 	    }
-	    p.setNext(new LNode<T>(value));
+	    p.setNext(new LNode(value));
 
 	}
 	size += 1;
@@ -138,8 +140,8 @@ public class MyLinkedList<T>{
 	return true;
     }
 
-    /*
-    public int indexOf(int value){
+    
+    public int indexOf(T value){
 	//- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
 	LNode p = start;
 	int i = 0;
@@ -158,7 +160,7 @@ public class MyLinkedList<T>{
 
 	return ans;
     }
-    */
+   
 
     public String toString() {
 	//- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ]
@@ -176,29 +178,30 @@ public class MyLinkedList<T>{
     }
 
 	
-    
+    /*
     
     public static void main(String[]laksjdla){
-	MyLinkedList<T> a = new MyLinkedList<T>();
+	MyLinkedList<String> a = new MyLinkedList<String>();
 
 	int i = 0;
-	while(i < 100){
-	    a.add(i);
+	while(i < 10){
+	    a.add("_");
 	    i++;
 	}
-	a.add(54);
-	a.add(-10);
-	a.add(47);
+	a.add("lol");
+	a.add("what is happen");
+	a.add("merp");
 	System.out.println(a);
-	a.set(3, 12);
+	a.set(3, "haha");
 	System.out.println(a);
 	a.remove(1);
 	System.out.println(a);
 	System.out.println(a.size);
-        a.add(3, 0);
+        a.add(3, "hmm");
 	System.out.println(a);
 	System.out.println(a.size);
+	System.out.println(a.indexOf("hmm"));
     }
-    
+    */
     
 }
