@@ -1,5 +1,3 @@
-//unfinished i hate compsci and myself for choosing this course
-
 public class Quick{
 
     private static int partition(int[]data, int left, int right) {
@@ -25,7 +23,7 @@ public class Quick{
     }
 
     public static String name(){
-	return "6,Chang,Catherine, SORRY IM NOT DONE YET STILL WORKING ON OLDER ONES ILLTRY TO WORK ON THIS ONE SOON EVEN IF I CANT FIGURE OUT THE OTHERS COMPLETELY";
+	return "6,Chang,Catherine, hahahahaha so laaate";
     }
     public static void quickSort(int[]data){
     }
