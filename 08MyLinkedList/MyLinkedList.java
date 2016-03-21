@@ -1,10 +1,10 @@
-public class MyLinkedList{
+public class MyLinkedList<T>{
 
     //Linked lists are made up of nodes, where each node contains a reference to the next node in the list
     //help from http://www.mycstutorials.com/articles/data_structures/linkedlists
 
 
-    private class LNode{
+    private class LNode<T>{
         LNode next;
 	int value;
 
@@ -101,7 +101,7 @@ public class MyLinkedList{
 
 
 	LNode p = start;
-	LNode n = new LNode(value);
+	LNode n = new LNode<T>(value);
 	int i = 0;
 
 	while(p.getNext() != null){
@@ -124,13 +124,13 @@ public class MyLinkedList{
 	// - adds to end
 
 	if(start == null){
-	    start = new LNode(value);
+	    start = new LNode<T>(value);
 	}else{
 	    LNode p = start;			
 	    while(p.getNext()!=null){
 		p = p.getNext();
 	    }
-	    p.setNext(new LNode(value));
+	    p.setNext(new LNode<T>(value));
 
 	}
 	size += 1;
@@ -138,7 +138,7 @@ public class MyLinkedList{
 	return true;
     }
 
-
+    /*
     public int indexOf(int value){
 	//- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
 	LNode p = start;
@@ -158,7 +158,7 @@ public class MyLinkedList{
 
 	return ans;
     }
-    
+    */
 
     public String toString() {
 	//- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ]
@@ -176,10 +176,10 @@ public class MyLinkedList{
     }
 
 	
-    /*
+    
     
     public static void main(String[]laksjdla){
-	MyLinkedList a = new MyLinkedList();
+	MyLinkedList<T> a = new MyLinkedList<T>();
 
 	int i = 0;
 	while(i < 100){
@@ -199,6 +199,6 @@ public class MyLinkedList{
 	System.out.println(a);
 	System.out.println(a.size);
     }
-    */
+    
     
 }
