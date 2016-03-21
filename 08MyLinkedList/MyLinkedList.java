@@ -52,7 +52,19 @@ public class MyLinkedList{
 
     public int set(int index,int newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
-	return 0;
+	int old = get(index);
+
+	int i = 0;
+	LNode p = start;
+
+	while(i < index){
+	    p= p.getNext();
+	    i++;
+	}
+
+	p.setValue(newValue);
+	
+	return old;
 
     }
 
@@ -62,11 +74,51 @@ public class MyLinkedList{
 	//- return the number of elements in the list
 	return size;
     }
-/*
-int remove(int index) - remove the element at the specified index, returns the value removed
+    
+    public int remove(int index){
+	//- remove the element at the specified index, returns the value removed
+	size -= 1;
 
-boolean add(int index, int value) - insert a new elmeent at the specified index, 0 at the front, size() at the end.
-    */
+	int old = get(index);
+
+	int i = 0;
+	LNode p = start;
+
+	while(i < index){
+	    p= p.getNext();
+	    i++;
+	}
+
+	p.setNext(p.getNext().getNext());
+	
+	return old;
+	
+    }
+
+
+    public boolean add(int index, int value){
+	//- insert a new element at the specified index, 0 at the front, size() at the end.
+
+
+	LNode p = start;
+	LNode n = new LNode(value);
+	int i = 0;
+
+	while(p.getNext() != null){
+	    i++;
+	    p = p.getNext();
+	    if(i == index -1){
+		n.setNext(p.getNext());
+		p.setNext(n);
+		
+	    }
+
+
+	}
+	size += 1;
+	return true;
+    }
+   
 
     public boolean add(int value){
 	// - adds to end
@@ -86,9 +138,27 @@ boolean add(int index, int value) - insert a new elmeent at the specified index,
 	return true;
     }
 
-/*
-int indexOf(int value) - returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
-    */
+
+    public int indexOf(int value){
+	//- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
+	LNode p = start;
+	int i = 0;
+	int ans = -1;
+
+	while(p.getNext() != null){
+
+	    if(p.getValue() == value){
+		ans = i;
+	    }
+
+	    i++;
+	    p = p.getNext();
+
+	}
+
+	return ans;
+    }
+    
 
     public String toString() {
 	//- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ]
@@ -106,19 +176,29 @@ int indexOf(int value) - returns the index of the 1st occurrence of the value in
     }
 
 	
+    /*
     
-    
-    public static void main(String[]fuckthis){
+    public static void main(String[]laksjdla){
 	MyLinkedList a = new MyLinkedList();
 
-	System.out.println(a);
-	a.add(2);
-	a.add(3894197);
+	int i = 0;
+	while(i < 100){
+	    a.add(i);
+	    i++;
+	}
+	a.add(54);
 	a.add(-10);
-	a.add(100);
-        System.out.println(a.size());
+	a.add(47);
 	System.out.println(a);
-	System.out.println(a.get(3));
+	a.set(3, 12);
+	System.out.println(a);
+	a.remove(1);
+	System.out.println(a);
+	System.out.println(a.size);
+        a.add(3, 0);
+	System.out.println(a);
+	System.out.println(a.size);
     }
+    */
     
 }

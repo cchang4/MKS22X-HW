@@ -54,132 +54,88 @@ public class Sorts{
         }
     }
 
-
-   
+    /*HELP FROM you&dad&internet especially http://www.codenlearn.com/2011/10/simple-merge-sort.html
+     */
 
     public static void mergesort(int[]data){
-	
 
-
-	int[] left = new int[(data.length/2)];
-	int[] right = new int[data.length - left.length];
-
-	    		
-	for(int i = 0; i < left.length; i ++){
-	    left[i] = data[i];
-
-	}
-	/*
-			System.out.print("left: ");
-				printArray(left);
-	*/
-
-	for(int i = 0; i < right.length; i++){
-	    for (int j = left.length; j < data.length; j++){
-		right[i] = data[j];
-		i++;
-	    }
-	}
-	/*
-
-			System.out.print("right: ");
-			printArray(right);
-	*/
-	
-	if(data.length> 1){
-	    mergesort(left);
-	    mergesort(right);
-	    merge(data, 0, right.length, right.length-1, data.length-1);
-	
-	}
-
-
+	mergesortHelper(data, 0, data.length - 1);
+	printArray(data);
 
     }
- 
+
+
+    private static void mergesortHelper(int[] data, int start, int end){
+
+
+	if(start < end){
+
+	    int mid = (start+end) / 2;
+
+	    mergesortHelper(data, start, mid);
+	    mergesortHelper(data, mid+1, end);
+
+	    merge(data, start, mid, mid+1, end);
+	}
+	 
+    }
+  
+
+   private static void merge(int[]data, int startA, int endA, int startB, int endB){
+
+       int size = endB - startA + 1;
+       int[] temp = new int[data.length];
+       int i = 0;
+
+
+	while(startA <= endA && startB <= endB){
+	    if(data[startA] <= data[startB]){
+		temp[i++] = data[startA++];
    
-
-    /*
-      Preconditions:
-      data.length >= 2
-      the elements of data are in ascending order (sorted)
-      startA <= endA
-      startB <= endB
-      endA + 1 == startB
-      startA >= 0
-      endB < data.length
-    */
-
-    public static void merge(int[]data, int startA, int endA, int startB, int endB){
-
-	
-	int[]temp = new int[data.length];
-	int i = 0;
-
-
-
-	while(startA < endA && startB < endB){
-        	if(data[startA] > data[startB]){
-		    temp[i] = data[startB];
-		    startB++;
-		    i++;
-		}else{
-		    temp[i] = data[startA];
-		    startA++;
-		    i++;
-		}
-
-		//	printArray(temp); 
-	}
-
-	while(startA < endA){
-	    temp[i] = data[startA];
-	    startA++;
-	    i++;
-	}
-
-	while(startB < endB){
-	    temp[i] = data[startB];
-	    startB++;
-	    i++;
-	}
+	    } else {
+		temp[i++] = data[startB++];
+	    }	      
 	    
-	   
-       
-	/*
+	}
 
-	
-			System.out.print("merge");
-			printArray(data);
-	       		System.out.println("merge: " + startA + ", " + endA + ", " +startB + ", " + endB);
-				System.out.print("final");
-	*/
 
-	printArray(temp);
+	while(startA <= endA){
+	    temp[i++] = data[startA++];
+	}
 
-	
+	while(startB <= endB){
+	    temp[i++] = data[startB++];
+	}
+
+	for(int j = size - 1; j >=0; j--,endB--){
+	    data[endB] = temp[j];
+	}
+
+
     }
 
-    
-    
     /*
+    
       public static void main(String[] args) 
     {
+	
         //Unsorted array
-        int[] a = {4, 2, 5, 3, 1};
+        int[] a = {4, 2, 5, 3, 1, 2, 4};
 	int[] b = {2, 3, 5, 3};
          
         //Call merge sort
-	//System.out.println("odd");
-	// mergesort(a);
-		System.out.println("even");
-		mergesort(b);
+	System.out.println("odd");
+	mergesort(a);
+	System.out.println("even");
+	mergesort(b);
 
+	
     }
-    */    
+    */
+        
     
     
     public static String name(){
-	return "6,Chang,Catherine, why";  }
+	return "6,Chang,Catherine, im super extra late rip";  }
 
 }
