@@ -43,6 +43,8 @@ public class MyLinkedList<T>{
 	int i = 0;
 	LNode p = start;
 
+	if(index <=0){ return null;}
+
 	while(i < index){
 	    p= p.getNext();
 	    i++;
