@@ -43,7 +43,7 @@ public class MyLinkedList<T>{
 	int i = 0;
 	LNode p = start;
 
-	if(index <=0 || index < size()){ return null;}
+	if(index <=0 || index > size()){ return null;}
 
 	while(i < index){
 	    p= p.getNext();
@@ -60,11 +60,9 @@ public class MyLinkedList<T>{
 	int i = 0;
 	LNode p = start;
 
-	try{
-	    if(index <=0 || index < size())
-		} catch(IndexOutOfBoundsException e){
 
-	}
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
+
 
 	while(i < index){
 	    p= p.getNext();
@@ -112,7 +110,7 @@ public class MyLinkedList<T>{
 	LNode n = new LNode(value);
 	int i = 0;
 
-	if(index <=0 || index < size()){ return false;}
+	if(index <=0 || index > size()){ return false;}
 
 	while(p.getNext() != null){
 	    i++;
@@ -187,7 +185,7 @@ public class MyLinkedList<T>{
 
 	
     
-    
+    /*
     public static void main(String[]laksjdla){
 	MyLinkedList<String> a = new MyLinkedList<String>();
 
@@ -210,6 +208,8 @@ public class MyLinkedList<T>{
 	System.out.println(a.size);
 	System.out.println(a.indexOf("hmm"));
     }
+
+    */
    
     
 }
