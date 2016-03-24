@@ -41,7 +41,7 @@ public class MyLinkedList<T>{
     public T get(int index){
 	//- get the value of the element at the specified index (0 based)
 
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
 	int i = 0;
 	LNode p = start;
 
@@ -59,7 +59,7 @@ public class MyLinkedList<T>{
     public T set(int index,T newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
 
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
         T old = get(index);
 	int i = 0;
 	LNode p = start;
@@ -85,7 +85,7 @@ public class MyLinkedList<T>{
     
     public T remove(int index){
 	//- remove the element at the specified index, returns the value removed
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
 	
 	size -= 1;
 
