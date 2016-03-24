@@ -40,10 +40,10 @@ public class MyLinkedList<T>{
 
     public T get(int index){
 	//- get the value of the element at the specified index (0 based)
+
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
 	int i = 0;
 	LNode p = start;
-
-	if(index <=0 || index > size()){ return null;}
 
 	while(i < index){
 	    p= p.getNext();
@@ -52,16 +52,17 @@ public class MyLinkedList<T>{
 	return p.getValue();
     }
 
+
+
  
 
     public T set(int index,T newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
+
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
         T old = get(index);
 	int i = 0;
 	LNode p = start;
-
-
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
 
 
 	while(i < index){
@@ -84,6 +85,8 @@ public class MyLinkedList<T>{
     
     public T remove(int index){
 	//- remove the element at the specified index, returns the value removed
+	if(index <=0 || index > size()){throw new IndexOutOfBoundsException();}
+	
 	size -= 1;
 
         T old = get(index);
@@ -106,11 +109,12 @@ public class MyLinkedList<T>{
     public boolean add(int index, T value){
 	//- insert a new element at the specified index, 0 at the front, size() at the end.
 
+	if(index <=0 || index >= size()){return false;}
+
 	LNode p = start;
 	LNode n = new LNode(value);
 	int i = 0;
 
-	if(index <=0 || index > size()){ return false;}
 
 	while(p.getNext() != null){
 	    i++;
@@ -171,6 +175,7 @@ public class MyLinkedList<T>{
     public String toString() {
 	//- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ]
 
+
 	String ans = "[";
 	LNode p = start;
 	while(p != null){
@@ -183,9 +188,13 @@ public class MyLinkedList<T>{
 	return ans + "]";
     }
 
+    public String toString(boolean b){
+	return "head";
+    }
+
 	
     
-    /*
+    
     public static void main(String[]laksjdla){
 	MyLinkedList<String> a = new MyLinkedList<String>();
 
@@ -197,19 +206,21 @@ public class MyLinkedList<T>{
 	a.add("lol");
 	a.add("what is happen");
 	a.add("merp");
-	System.out.println(a);
+	System.out.println(a.toString(true));
+     	System.out.println(a);
 	a.set(3, "haha");
-	System.out.println(a);
-	a.remove(1);
+       	System.out.println(a);
+	a.remove(-1);
 	System.out.println(a);
 	System.out.println(a.size);
-        a.add(-1, "hmm");
+        a.add(13, "hmm");
 	System.out.println(a);
 	System.out.println(a.size);
 	System.out.println(a.indexOf("hmm"));
     }
+    
 
-    */
+    
    
     
 }
