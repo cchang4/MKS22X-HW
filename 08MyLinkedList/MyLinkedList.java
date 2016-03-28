@@ -5,6 +5,7 @@ public class MyLinkedList<T>{
 
 
     private class LNode{
+    //implements Iterator<T>{
 	T data;
         LNode next;
 	int value;
@@ -41,13 +42,13 @@ public class MyLinkedList<T>{
     public T get(int index){
 	//- get the value of the element at the specified index (0 based)
 
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
-	int i = 0;
+	if(index < 0 || index >= size()){throw new IndexOutOfBoundsException("index: " +index + " " + "size: " + size);}
 	LNode p = start;
 
-	while(i < index){
-	    p= p.getNext();
-	    i++;
+	if(p == null) {throw new NullPointerException();}
+
+        for(int i = 0; i < index; i++){
+	    p = p.getNext();
 	}
 	return p.getValue();
     }
@@ -59,7 +60,7 @@ public class MyLinkedList<T>{
     public T set(int index,T newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
 
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
+	if(index < 0 || index > size()){throw new IndexOutOfBoundsException("index: " +index+ " " + "size: " + size);}
         T old = get(index);
 	int i = 0;
 	LNode p = start;
@@ -85,21 +86,21 @@ public class MyLinkedList<T>{
     
     public T remove(int index){
 	//- remove the element at the specified index, returns the value removed
-	if(index <=0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + "size: " + size);}
+	if(index < 0 || index >= size()){throw new IndexOutOfBoundsException("index: " +index + " " + "size: " + size);}
 	
-	size -= 1;
 
         T old = get(index);
 
 	int i = 0;
 	LNode p = start;
 
-	while(i < index){
-	    p= p.getNext();
+	while(i < index-1){
+     	    p= p.getNext();
 	    i++;
 	}
 
 	p.setNext(p.getNext().getNext());
+	size -= 1;
 	
 	return old;
 	
@@ -109,7 +110,7 @@ public class MyLinkedList<T>{
     public boolean add(int index, T value){
 	//- insert a new element at the specified index, 0 at the front, size() at the end.
 
-	if(index <=0 || index >= size()){return false;}
+	if(index < 0 || index > size()){throw new IndexOutOfBoundsException("index: " +index + " " + "size: " + size);}
 
 	LNode p = start;
 	LNode n = new LNode(value);
@@ -154,7 +155,7 @@ public class MyLinkedList<T>{
     public int indexOf(T value){
 	//- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
 	LNode p = start;
-	int i = 0;
+	int i = 1;
 	int ans = -1;
 
 	while(p.getNext() != null){
@@ -189,8 +190,16 @@ public class MyLinkedList<T>{
     }
 
     public String toString(boolean b){
-	return "head";
+	return "head" + " " + get(0)+ ", " + "tail" + " " + get(size()-1) + " " + toString();
     }
+    /*
+    public Iterator<T> iterator(){
+	return new MyLinkedListIterator();
+    }
+
+    public class MyLinkedListIterator implements Iterator{
+    }
+    */
 
 	
     
