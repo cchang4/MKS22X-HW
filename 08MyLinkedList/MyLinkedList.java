@@ -1,11 +1,11 @@
-public class MyLinkedList<T>{
+import java.util.*;
+public class MyLinkedList<T> implements Iterable<T>{
 
     //Linked lists are made up of nodes, where each node contains a reference to the next node in the list
     //help from http://www.mycstutorials.com/articles/data_structures/linkedlists
 
 
     private class LNode{
-    //implements Iterator<T>{
 	T data;
         LNode next;
 	int value;
@@ -23,8 +23,10 @@ public class MyLinkedList<T>{
 	    return next;
 	}
 
-	public void setValue(T thing){
+	public T setValue(T thing){
+	    T old = data;
 	    data = thing;
+	    return old;
 	}
 
 	public void setNext(LNode n){
@@ -45,10 +47,9 @@ public class MyLinkedList<T>{
 	if(index < 0 || index >= size()){throw new IndexOutOfBoundsException("index: " +index + " " + "size: " + size);}
 	LNode p = start;
 
-	if(p == null) {throw new NullPointerException();}
-
-        for(int i = 0; i < index; i++){
+        while(index > 0){
 	    p = p.getNext();
+	    index--;
 	}
 	return p.getValue();
     }
@@ -60,15 +61,14 @@ public class MyLinkedList<T>{
     public T set(int index,T newValue) {
 //- change the value of the element at the specified index to the newValue, return the old value
 
-	if(index < 0 || index > size()){throw new IndexOutOfBoundsException("index: " +index+ " " + "size: " + size);}
+	if(index < 0 || index >= size()){throw new IndexOutOfBoundsException("index: " +index+ " " + "size: " + size);}
         T old = get(index);
-	int i = 0;
 	LNode p = start;
 
 
-	while(i < index){
+	while(index > 0){
 	    p= p.getNext();
-	    i++;
+	    index--;
 	}
 
 	p.setValue(newValue);
@@ -117,18 +117,21 @@ public class MyLinkedList<T>{
 	int i = 0;
 
 
-	while(p.getNext() != null){
-	    i++;
-	    p = p.getNext();
-	    if(i == index -1){
-		n.setNext(p.getNext());
-		p.setNext(n);
-		
+	if(i == 0){
+	    temp.setNext(head);
+	    head = temp;
+	    if(size==0){
+		tail = head;
 	    }
-
-
+	}else{ 
+	    LNode p = getNth(index-1);
+	    temp.setNext(p.getNext());
+	    p.setNext(temp);
+	    if(tail.getNext() != null){
+		tail=tail.getNext();
+	    }
 	}
-	size += 1;
+	size++;
 	return true;
     }
    
@@ -155,12 +158,12 @@ public class MyLinkedList<T>{
     public int indexOf(T value){
 	//- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
 	LNode p = start;
-	int i = 1;
+	int i = 0;
 	int ans = -1;
 
-	while(p.getNext() != null){
+	while(p != null){
 
-	    if(p.getValue() == value){
+	    if(p.getValue().equals(value)){
 		ans = i;
 	    }
 
@@ -192,17 +195,29 @@ public class MyLinkedList<T>{
     public String toString(boolean b){
 	return "head" + " " + get(0)+ ", " + "tail" + " " + get(size()-1) + " " + toString();
     }
-    /*
-    public Iterator<T> iterator(){
-	return new MyLinkedListIterator();
-    }
-
-    public class MyLinkedListIterator implements Iterator{
-    }
-    */
-
-	
     
+    public Iterator<T> iterator(){
+	return new Iterator<T>(){
+	    private LNode current = start;
+
+	    public boolean hasNext(){
+		return current != null;
+	    }
+	    public T next(){
+		if(!hasNext()){
+		    throw new NoSuchElementException();
+		}
+		T value = current.getValue();
+		current = current.getNext();
+		return value;
+	    }
+	    public void remove(){
+		throw new UnsupportedOperationException();
+	    }
+	};
+    
+    }
+
     
     public static void main(String[]laksjdla){
 	MyLinkedList<String> a = new MyLinkedList<String>();
