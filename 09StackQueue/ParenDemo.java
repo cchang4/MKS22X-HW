@@ -1,9 +1,12 @@
 public class ParenDemo{
-
-    //NEED TO FINISH LATER STILL NEED TO CHECK IF THE OTHER THINGS WORK
+    //gggggg
 
     public static boolean isMatching(String s){
 	return true;    
+    }
+
+    public static char getMatch(char c){
+	return '.';
     }
 
     public static void main(String[]args){

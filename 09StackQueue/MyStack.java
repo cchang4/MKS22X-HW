@@ -3,6 +3,7 @@ public class MyStack<T>{
 
      MyLinkedList<T> data;
 
+
     /**
      * Adds the given item to the top of the stack.
      */
@@ -47,13 +48,10 @@ public class MyStack<T>{
 	
 	return true;
     }
-    /*
-    public static void main(String[]askdh){
-	MyStack<String> s = new MyStack<String>();
 
-	//	s.push("hello");
-
-	System.out.println(s);
+    public String toString(){
+	return data.toString();
     }
-    */
+
 }
+   
