@@ -56,16 +56,10 @@ public class MyStack<T>{
     public String toString(){
 	return data.toString();
     }
-
+   
     public static void main(String[]asdsad){
         MyStack<String> m = new MyStack<String>();
 	Stack<String> n = new Stack<String>();
-
-	
-        for(int i = 0; i < 10; i++){
-            m.push(""+i);
-	    n.push(""+i);
-        }
 
 
 	m.push("hi");
@@ -82,6 +76,7 @@ public class MyStack<T>{
 	System.out.println(m);
 	System.out.println(m.size());     
     }
+    
 
 }
    
