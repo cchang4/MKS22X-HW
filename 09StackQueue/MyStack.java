@@ -2,6 +2,10 @@ import java.util.*;
 public class MyStack<T>{
 
      MyLinkedList<T> data;
+    
+    public MyStack(){
+	data = new MyLinkedList<T>();
+    }
 
 
     /**
@@ -51,6 +55,32 @@ public class MyStack<T>{
 
     public String toString(){
 	return data.toString();
+    }
+
+    public static void main(String[]asdsad){
+        MyStack<String> m = new MyStack<String>();
+	Stack<String> n = new Stack<String>();
+
+	
+        for(int i = 0; i < 10; i++){
+            m.push(""+i);
+	    n.push(""+i);
+        }
+
+
+	m.push("hi");
+	n.push("hi");
+	m.push("asd");
+	n.push("asd");
+	
+	System.out.println(m);
+	System.out.println(m.size());
+	System.out.println("built in: " + n);
+
+	System.out.println(m.pop());
+
+	System.out.println(m);
+	System.out.println(m.size());     
     }
 
 }
