@@ -2,7 +2,17 @@ import java.util.*;
 
 public class MyDeque<T>{
 
+    T[] data;
+
+    public MyDeque(){
+	data = (T[]) new Object[10];
+    }
+
     //  0. You need a private method to grow the array and copy over the values.
+
+    private void grow(){
+
+    }
 
     //	There are 6 public methods:
 
@@ -32,6 +42,10 @@ public class MyDeque<T>{
     public T getLast(){
 	//	-NoSuchElementException is thrown when there are no elements. 
 
+    }
+
+    public String toString(){
+	return ".";
     }
 
 }
