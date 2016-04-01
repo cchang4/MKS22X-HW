@@ -1,8 +1,15 @@
+import java.util.*;
 public class ParenDemo{
     //gggggg
     //aghh will work on laterrr
 
     public static boolean isMatching(String s){
+	MyStack<Character> openparens = new MyStack<Character>();
+	for(char next: s.toCharArray()){
+	    if (next == '(' || next == '[' || next == '<' || next == '{'){
+		char WhatShouldBeOnStack = getMatch(next);
+	    }
+	}
 	return true;    
     }
 
@@ -20,3 +27,4 @@ public class ParenDemo{
 	    System.out.println("java ParenDemo \"text\""); 
 	}
     }
+}
