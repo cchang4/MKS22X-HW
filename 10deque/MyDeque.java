@@ -2,10 +2,24 @@ import java.util.*;
 
 public class MyDeque<T>{
 
+
     T[] data;
+
+    public void add(T n){
+	data[0]=n;
+    }
+
+    public T get(){
+	
+	return data[0];
+    }
+
+    
+
 
     public MyDeque(){
 	data = (T[]) new Object[10];
+
     }
 
     //  0. You need a private method to grow the array and copy over the values.
@@ -29,6 +43,8 @@ public class MyDeque<T>{
 
     public T removeFirst(){
 
+	
+
     }  
     
     public T removeLast(){  
@@ -48,4 +64,11 @@ public class MyDeque<T>{
 	return ".";
     }
 
+    public static void main(String[]args){
+        MyDeque<String> x = new MyDeque<String>();
+	x.add("fish");
+	System.out.println(x.get());
+    }
+
 }
+
