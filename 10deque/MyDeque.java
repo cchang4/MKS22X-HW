@@ -3,7 +3,14 @@ import java.util.*;
 public class MyDeque<T>{
 
 
-    T[] data;
+    private T[] data;
+
+    @SuppressWarnings("unchecked")	
+
+	public MyDeque(){
+	data = (T[]) new Object[10];
+
+    }
 
     public void add(T n){
 	data[0]=n;
@@ -14,16 +21,9 @@ public class MyDeque<T>{
 	return data[0];
     }
 
-    
-
-
-    public MyDeque(){
-	data = (T[]) new Object[10];
-
-    }
-
     //  0. You need a private method to grow the array and copy over the values.
-
+ 
+  @SuppressWarnings("unchecked")	
     private void grow(){
 
     }
