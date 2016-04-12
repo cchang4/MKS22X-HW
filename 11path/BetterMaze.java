@@ -2,7 +2,23 @@ import java.util.*;
 import java.io.*;
 
 public class BetterMaze{
+    
     private class Node{
+	private int ID;
+	private Node prev;
+
+	public Node(int c, Node p){
+	    c = ID;
+	    p = prev;
+	}
+
+	public Node getPrev(){
+	    return prev;
+	}
+
+	public int getValue(){
+	    return ID;
+	}
 
     }
 
