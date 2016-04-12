@@ -61,12 +61,12 @@ public class BetterMaze{
       Keep going until you find a solution or run out of elements on the frontier.
     **/
     private boolean solve(){  
-        /** IMPLEMENT THIS **/  
+        /** IMPLEMENT THIS **/ // if animate true print every step??? 
 	return false;
     }    
      
    /**mutator for the animate variable  **/
-    public void setAnimate(boolean b){  /** IMPLEMENT THIS **/ }   
+    public void setAnimate(boolean b){ animate = b}   
 
     //---------------------------------------------------------------- 
 

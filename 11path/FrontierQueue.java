@@ -7,13 +7,15 @@ public class FrontierQueue<T> implements Frontier<T>{
 
     /***You can extend another class OR wrap around it***/
 
-    Queue q;
+    private Queue<T> q;
+    private LinkedList<T> l;
 
     public void add(T element){
 	q.add(element);
     }
 
     public T next(){
+	
 
     }
 
