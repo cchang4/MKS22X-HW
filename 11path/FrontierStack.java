@@ -9,15 +9,22 @@ public class FrontierStack<T> implements Frontier<T>{
 
     private Stack<T> s;
 
+    public FrontierStack(){
+	s = new Stack<T>();
+    }
+
     public void add(T element){
-	s.add(element);
+	s.push(element);
     }
 
     public T next(){
-
+        return s.peek();
     }
 
     public boolean hasNext(){
+	if (s.size() > 0){
+	    return false;
+	}
 	return true;
     }
 
