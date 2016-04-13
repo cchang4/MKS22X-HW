@@ -4,11 +4,12 @@ import java.io.*;
 public class BetterMaze{
     
     private class Node{
-	private int ID;
+	private int[] rc;
 	private Node prev;
 
-	public Node(int c, Node p){
-	    c = ID;
+	public Node(int r, int c, Node p){
+	    r = rc[0];
+	    c = rc[1];
 	    p = prev;
 	}
 
@@ -17,7 +18,7 @@ public class BetterMaze{
 	}
 
 	public int getValue(){
-	    return ID;
+	    return rc[0];
 	}
 
     }
@@ -66,7 +67,7 @@ public class BetterMaze{
     }    
      
    /**mutator for the animate variable  **/
-    public void setAnimate(boolean b){ animate = b}   
+    public void setAnimate(boolean b){ animate = b; }   
 
     //---------------------------------------------------------------- 
 
