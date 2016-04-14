@@ -46,7 +46,8 @@ public class BetterMaze{
     /**initialize the frontier as a queue and call solve
     **/
     public boolean solveBFS(){  
-        /** IMPLEMENT THIS **/      
+        /** IMPLEMENT THIS **/
+  
 	return false;
     }   
 
