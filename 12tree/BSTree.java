@@ -19,9 +19,12 @@ public class BSTree<T extends Comparable<T>>{
 
 	//real methods here
 	public int height(){ 
-	    return 0;
+	    int ans=0;
+
+	    return ans;
 	}
 	public void add(T value){
+	
 	}
 	public String toString(){
 	    return "gods";
