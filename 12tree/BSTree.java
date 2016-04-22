@@ -5,6 +5,11 @@ public class BSTree<T extends Comparable<T>>{
 	Node right;
 	// set/get: data/left/right
 
+	public Node(){
+	    left = null;
+	    right = null;
+	}
+
 	public T getData(){ return data;}
 	
 	public Node getLeft(){ return left;}
@@ -19,7 +24,11 @@ public class BSTree<T extends Comparable<T>>{
 
 	//real methods here
 	public int height(){ 
-	    int ans=0;
+	    int ans=1;
+
+	    while (left !=null || right !=null){
+		ans++;
+	    }
 
 	    return ans;
 	}
@@ -28,7 +37,7 @@ public class BSTree<T extends Comparable<T>>{
 	}
 	public String toString(){
 	    return "gods";
-	}
+ 	}
 	public boolean contains(T value){
 	    return false;
 	}
@@ -54,5 +63,9 @@ public class BSTree<T extends Comparable<T>>{
     public boolean contains(T value){
 	//check for empty before you do things with root.
 	return false;
+    }
+
+    public T remove(T value){
+	return value;
     }
 }
