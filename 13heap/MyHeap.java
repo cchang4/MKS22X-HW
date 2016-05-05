@@ -1,14 +1,19 @@
 import java.util.*;
 @SuppressWarnings("unchecked")
+
 public class MyHeap<T extends Comparable<T>>
 {
    private int size;
    private T[] data;
 
    public MyHeap(){
+       size = 10;
+       data = T[10];
    }
 
    public MyHeap(T[] array){
+       data = array;
+       size = data.length;
    }
 
    private void pushDown(int k){
@@ -32,11 +37,17 @@ public class MyHeap<T extends Comparable<T>>
    public String toString(){
    }
 
+   public static void main(String[]ssssss){
+
+   }
+
+   /*
    //do this last
    public MyHeap(boolean isMax){
    }
 
    public MyHeap(T[] array, boolean isMax){
    }
+   */
 
 }
