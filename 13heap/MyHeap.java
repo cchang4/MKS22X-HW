@@ -8,7 +8,7 @@ public class MyHeap<T extends Comparable<T>>
 
    public MyHeap(){
        size = 10;
-       data = T[10];
+       data = (T[])new Comparable[10];
    }
 
    public MyHeap(T[] array){
