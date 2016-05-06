@@ -17,6 +17,9 @@ public class MyHeap<T extends Comparable<T>>
    }
 
    private void pushDown(int k){
+       for(int i = 0; i < data.length; i++){
+	   if(data[i] == null) data[i] = k;
+       }
    }
 
    private void pushUp(int k){
@@ -42,8 +45,9 @@ public class MyHeap<T extends Comparable<T>>
 
    public static void main(String[]ssssss){
 
-       MyHeap<String> h = new MyHeap<String>();
+       MyHeap<Integer> h = new MyHeap<Integer>();
 
+       h.pushDown(2);
        System.out.println(h);
 
    }
