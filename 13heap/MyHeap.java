@@ -24,22 +24,27 @@ public class MyHeap<T extends Comparable<T>>
 
    private void heapify(){
    }
+   /*
 
    public T delete(){
    }
-
+   */
    public void add(T x){
    }
 
    private void doubleSize(){
-       data
+       data = Arrays.copyOf(data, data.length * 2);
    }
 
    public String toString(){
-       return "";
+       return Arrays.toString(data);
    }
 
    public static void main(String[]ssssss){
+
+       MyHeap<String> h = new MyHeap<String>();
+
+       System.out.println(h);
 
    }
 
