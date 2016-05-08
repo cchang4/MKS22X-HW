@@ -15,6 +15,12 @@ public class MyHeap<T extends Comparable<T>>
        data = array;
        size = data.length;
    }
+     /**pushDown
+      precondition: datas[k]'s children are valid heaps
+      postconditions:-the element at index k has been 
+                     shifted to the correct spot.
+                     -data[k] and is a valid heap
+   **/
 
    private void pushDown(int k){
        for(int i = 0; i < data.length; i++){
@@ -22,6 +28,13 @@ public class MyHeap<T extends Comparable<T>>
        }
    }
 
+     /**pushUp
+      precondition: data is a heap with at most one item
+      out of place (element at k)
+      postconditions:-the element at index k has been 
+                     shifted to the correct spot.
+                     -data is a valid heap
+   **/
    private void pushUp(int k){
    }
 
